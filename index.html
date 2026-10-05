@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio pribadi Revan Adi Saputra, pelajar yang tertarik pada desain, teknologi, dan hal-hal baru.">
+    <meta name="theme-color" content="#f7f6f2">
+    <title>Revan Adi Saputra — Portofolio Pelajar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --paper: #f7f6f2;
+            --ink: #20251f;
+            --muted: #767a72;
+            --green: #55745c;
+            --line: #e4e3dc;
+            --white: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 92px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .shell {
+            width: min(1080px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            position: sticky;
+            z-index: 2;
+            top: 0;
+            border-bottom: 1px solid rgb(32 37 31 / 7%);
+            background: rgb(247 246 242 / 92%);
+            backdrop-filter: blur(14px);
+        }
+
+        .navigation {
+            display: flex;
+            min-height: 76px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-family: Manrope, sans-serif;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .brand span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            color: #62665f;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--green);
+        }
+
+        .nav-contact {
+            padding: 11px 17px;
+            border: 1px solid #d8d9d1;
+            border-radius: 999px;
+            color: var(--ink) !important;
+        }
+
+        .hero {
+            display: grid;
+            min-height: 610px;
+            grid-template-columns: 1.08fr .92fr;
+            align-items: center;
+            gap: 56px;
+            padding-top: 44px;
+            padding-bottom: 72px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #87a88b;
+            box-shadow: 0 0 0 4px rgb(135 168 139 / 16%);
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 590px;
+            margin: 22px 0 18px;
+            font-family: Manrope, sans-serif;
+            font-size: clamp(48px, 7vw, 76px);
+            font-weight: 600;
+            letter-spacing: -5.5px;
+            line-height: 1.06;
+        }
+
+        h1 span {
+            color: var(--green);
+        }
+
+        .hero-copy {
+            max-width: 470px;
+            margin-bottom: 29px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 20px;
+            border: 1px solid var(--ink);
+            border-radius: 999px;
+            background: var(--ink);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 700;
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: var(--green);
+        }
+
+        .button-secondary {
+            border-color: var(--line);
+            background: transparent;
+            color: var(--ink);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--green);
+            background: transparent;
+            color: var(--green);
+        }
+
+        .portrait-wrap {
+            position: relative;
+            width: min(100%, 410px);
+            justify-self: end;
+            padding: 0 20px 23px 0;
+        }
+
+        .quote-card {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            min-height: 460px;
+            padding: 32px 26px;
+            border: 1px solid rgb(32 37 31 / 8%);
+            border-radius: 32px 32px 22px 22px;
+            background: linear-gradient(135deg, #f4f6f0 0%, #e4ebdf 100%);
+            box-shadow: 0 18px 40px rgb(32 37 31 / 8%);
+            text-align: center;
+        }
+
+        .quote-label {
+            margin: 0 0 18px;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .quote-text {
+            max-width: 290px;
+            margin: 0;
+            font-family: Manrope, sans-serif;
+            font-size: clamp(26px, 2.8vw, 38px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.12;
+            color: var(--ink);
+        }
+
+        .section {
+            padding: 86px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .section-kicker {
+            margin-bottom: 11px;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin-bottom: 0;
+            font-family: Manrope, sans-serif;
+            font-size: clamp(30px, 4vw, 42px);
+            font-weight: 600;
+            letter-spacing: -2px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            max-width: 360px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: rgb(255 255 255 / 55%);
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            font-family: Manrope, sans-serif;
+            font-size: 17px;
+            letter-spacing: -.4px;
+        }
+
+        .bio-list {
+            display: grid;
+            grid-template-columns: 118px 1fr;
+            gap: 16px 12px;
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .bio-list dt {
+            color: var(--muted);
+        }
+
+        .bio-list dd {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .about-text {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .interest-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 21px;
+        }
+
+        .interest {
+            padding: 8px 12px;
+            border: 1px solid #dfe2d9;
+            border-radius: 999px;
+            background: #f4f6f1;
+            color: #536454;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .education-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 18px;
+            padding: 25px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .education-card:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .education-card h3 {
+            margin-bottom: 6px;
+            font-family: Manrope, sans-serif;
+            font-size: 16px;
+        }
+
+        .education-card p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .education-date {
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .contact-panel {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 38px;
+            border-radius: 20px;
+            background: #e8ece4;
+        }
+
+        .contact-panel h2 {
+            margin-bottom: 9px;
+            font-size: clamp(26px, 4vw, 36px);
+        }
+
+        .contact-panel p {
+            margin-bottom: 0;
+            color: #687167;
+            font-size: 14px;
+        }
+
+        footer {
+            display: flex;
+            min-height: 82px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        @media (max-width: 760px) {
+            .shell {
+                width: min(100% - 36px, 560px);
+            }
+
+            .navigation {
+                min-height: 68px;
+            }
+
+            .nav-links {
+                gap: 17px;
+                font-size: 12px;
+            }
+
+            .nav-links a:nth-child(2) {
+                display: none;
+            }
+
+            .nav-contact {
+                padding: 9px 12px;
+            }
+
+            .hero {
+                min-height: auto;
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding-top: 67px;
+                padding-bottom: 64px;
+            }
+
+            h1 {
+                max-width: 510px;
+                font-size: clamp(48px, 12vw, 70px);
+                letter-spacing: -4px;
+            }
+
+            .hero-copy {
+                font-size: 15px;
+            }
+
+            .portrait-wrap {
+                width: min(83%, 360px);
+                justify-self: center;
+            }
+
+            .portrait {
+                height: 400px;
+            }
+
+            .section {
+                padding: 66px 0;
+            }
+
+            .section-heading {
+                display: block;
+                margin-bottom: 27px;
+            }
+
+            .section-description {
+                margin-top: 13px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 12px;
+                font-size: 11px;
+            }
+
+            .brand {
+                font-size: 17px;
+            }
+
+            .hero-actions .button {
+                min-height: 45px;
+                padding: 0 15px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .bio-list {
+                grid-template-columns: 100px 1fr;
+                font-size: 12px;
+            }
+
+            .contact-panel {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 27px;
+            }
+
+            footer {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+                padding: 18px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <nav class="navigation shell" aria-label="Navigasi utama">
+            <a class="brand" href="#beranda" aria-label="Revan Adi Saputra, beranda">revan<span>.</span></a>
+            <div class="nav-links">
+                <a href="#tentang">Tentang</a>
+                <a href="#pendidikan">Pendidikan</a>
+                <a class="nav-contact" href="#kontak">Hubungi saya</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero shell" id="beranda" aria-labelledby="hero-title">
+            <div>
+                <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Pelajar · Kelas XII</div>
+                <h1 id="hero-title">Halo, saya<br><span>Revan Adi Saputra.</span></h1>
+                <p class="hero-copy">Senang belajar hal baru, menuangkan ide, dan membuat sesuatu yang bermanfaat. Saat ini saya sedang mengeksplorasi dunia desain dan teknologi.</p>
+                <div class="hero-actions">
+                    <a class="button" href="#tentang">Kenali saya <span aria-hidden="true">↓</span></a>
+                    <a class="button button-secondary" href="mailto:revansodiq123@gmail.com">Kirim email <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+            <div class="portrait-wrap" aria-label="Kata-kata motivasi">
+                <div class="quote-card">
+                    <p class="quote-label">Motivasi</p>
+                    <p class="quote-text">Belajar hari ini, bangun masa depan yang lebih baik.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="tentang" aria-labelledby="about-title">
+            <div class="shell">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Sedikit tentang saya</p>
+                        <h2 id="about-title">Kenalan lebih dekat.</h2>
+                    </div>
+                    <p class="section-description">Setiap pengalaman adalah kesempatan untuk belajar dan menjadi versi diri yang lebih baik.</p>
+                </div>
+                <div class="about-grid">
+                    <article class="card">
+                        <h3>Biodata singkat</h3>
+                        <dl class="bio-list">
+                            <dt>Nama</dt><dd>Revan Adi Saputra</dd>
+                            <dt>Tempat, tanggal lahir</dt><dd>Sidoarjo, 06 Februari 2009</dd>
+                            <dt>Asal sekolah</dt><dd>SMAN 1 PORONG</dd>
+                            <dt>Kelas</dt><dd>XII</dd>
+                            <dt>Domisili</dt><dd>Sidoarjo, Jawa Timur</dd>
+                        </dl>
+                    </article>
+                    <article class="card">
+                        <h3>Cerita singkat</h3>
+                        <p class="about-text">Saya adalah pelajar yang penasaran dengan banyak hal. Di luar kegiatan sekolah, saya suka membaca, menggambar, dan belajar membuat desain sederhana. Saya percaya rasa ingin tahu dan konsistensi bisa membawa kita ke banyak hal baik.</p>
+                        <div class="interest-list" aria-label="Minat">
+                            <span class="interest">Desain</span>
+                            <span class="interest">Membaca</span>
+                            <span class="interest">Teknologi</span>
+                            <span class="interest">Menulis</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="pendidikan" aria-labelledby="education-title">
+            <div class="shell">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Perjalanan belajar</p>
+                        <h2 id="education-title">Pendidikan.</h2>
+                    </div>
+                    <p class="section-description">Terus berkembang, satu pelajaran dan pengalaman baru pada satu waktu.</p>
+                </div>
+                <div class="education-card">
+                    <div>
+                        <h3>SMAN 1 PORONG</h3>
+                        <p>Kelas XII · Sidoarjo, Jawa Timur</p>
+                    </div>
+                    <span class="education-date">2024 — sekarang</span>
+                </div>
+                <div class="education-card">
+                    <div>
+                        <h3>SMPN 1 TANGGULANGIN</h3>
+                        <p>Pendidikan menengah pertama · Tanggulangin, Jawa Timur</p>
+                    </div>
+                    <span class="education-date">2021 — 2024</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="kontak" aria-labelledby="contact-title">
+            <div class="shell">
+                <div class="contact-panel">
+                    <div>
+                        <p class="section-kicker">Mari terhubung</p>
+                        <h2 id="contact-title">Punya ide untuk dibagikan?</h2>
+                        <p>Saya senang bertemu teman baru dan belajar bersama.</p>
+                    </div>
+                    <a class="button" href="mailto:revansodiq123@gmail.com">revansodiq123@gmail.com <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="shell">
+        <span>© 2026 Revan Adi Saputra</span>
+        <span>Dibuat dengan semangat untuk terus belajar.</span>
+    </footer>
+</body>
+</html>
